@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+import ClassComponent from "./ClassComponent";
+
+const App = () => {
+  const [number, setNumber] = useState(0);
+
+  // console.log(number);
+
+  useEffect(() => {
+    let timerId = setInterval(() => {
+      setNumber((prev) => prev + 1);
+    }, 1000);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <ClassComponent /> */}
+      <h1>Count value {number}</h1>
+      <button type="button">Increase</button>
     </div>
   );
-}
+};
 
 export default App;
